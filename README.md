@@ -13,10 +13,10 @@ https://api.themoviedb.org
 √ DataBinding <br/>
 √ Glide <br/>
 
----Android Testing <br/>
- &#160; | <br/>
- &#160; --> Room Dao Testing <br/>
- &#160; --> Navigation Testing <br/>
+---> Android Testing <br/>
+ &#160; &#160; | <br/>
+ &#160; &#160; --> Room Dao Testing <br/>
+ &#160; &#160; --> Navigation Testing <br/>
  
  ![Uygulamaya ait resim](https://github.com/Sedat-Uluisik/TheMovieApp/blob/main/TheMovieApp/images/1.PNG)  &#160;
  ![Uygulamaya ait resim](https://github.com/Sedat-Uluisik/TheMovieApp/blob/main/TheMovieApp/images/2.PNG)
