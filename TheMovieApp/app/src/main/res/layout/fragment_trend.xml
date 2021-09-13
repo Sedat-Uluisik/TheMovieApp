@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:orientation="vertical"
+    android:background="#8C0000"
+    tools:context=".fragment.TrendFragment">
+
+    <TextView
+        android:id="@+id/trending_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trending"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_margin="7dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_trending"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabBtnDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:src="@drawable/day"
+            android:visibility="gone"
+            app:fabSize="normal"
+            android:backgroundTint="#FFA0A0"
+            app:backgroundTint="#FFA0A0"
+            app:layout_constraintBottom_toTopOf="@+id/fabBtnWeek"
+            app:layout_constraintEnd_toEndOf="@+id/main_fab"
+            app:layout_constraintStart_toStartOf="@+id/fabBtnWeek" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabBtnWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:src="@drawable/week"
+            android:visibility="gone"
+            app:fabSize="normal"
+            android:backgroundTint="#FFA0A0"
+            app:backgroundTint="#FFA0A0"
+            app:layout_constraintBottom_toTopOf="@+id/main_fab"
+            app:layout_constraintEnd_toEndOf="@+id/main_fab"
+            app:layout_constraintStart_toStartOf="@+id/main_fab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/main_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FFA0A0"
+            android:src="@drawable/ic_baseline_keyboard_double_arrow_up_24"
+            app:backgroundTint="#FFA0A0"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="@id/recycler_trending"
+            app:layout_constraintEnd_toEndOf="@+id/recycler_trending" />
+
+        <TextView
+            android:id="@+id/textViewDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:text="Daily"
+            android:visibility="gone"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:background="#FFA0A0"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fabBtnDay"
+            app:layout_constraintEnd_toStartOf="@+id/fabBtnDay"
+            app:layout_constraintTop_toTopOf="@+id/fabBtnDay" />
+
+        <TextView
+            android:id="@+id/textViewWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:text="Weekly"
+            android:visibility="gone"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:padding="5dp"
+            android:background="#FFA0A0"
+            app:layout_constraintBottom_toBottomOf="@+id/fabBtnWeek"
+            app:layout_constraintEnd_toStartOf="@+id/fabBtnWeek"
+            app:layout_constraintTop_toTopOf="@+id/fabBtnWeek" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar_trend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

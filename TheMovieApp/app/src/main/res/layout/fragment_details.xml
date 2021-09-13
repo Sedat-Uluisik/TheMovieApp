@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.sedat.themovieapp.model.Result" />
+        <variable
+            name="clickListener"
+            type="com.sedat.themovieapp.clicklistener.FavouriteBtnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8C0000"
+        app:layoutDescription="@xml/fragment_details_xml_constraintlayout_scene"
+        tools:context=".fragment.DetailsFragment">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recyler_item_background"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_favorite_border_32"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:onClick="@{(v)-> clickListener.onFavouriteBtnClick(v, movie)}"/>
+
+            <ImageView
+                android:id="@+id/movie_image"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:downloadfromurl="@{movie.posterPath}"/>
+
+            <TextView
+                android:id="@+id/movie_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:text="@{movie.title}" />
+
+            <TextView
+                android:id="@+id/movie_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:text="@{movie.releaseDate}"
+                app:drawableStartCompat="@drawable/ic_baseline_date_range_24" />
+
+            <TextView
+                android:id="@+id/movie_imdb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:text='@{"IMDB: " + String.valueOf(movie.voteAverage)}' />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:listitem="@layout/movie_images_item_layout" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:textColor="#E3E3E3"
+                android:text="@{movie.overview}" />
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieListFragment">
+
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.sedat.themovieapp.fragment.MovieListFragment"
+        android:label="fragment_movie_list"
+        tools:layout="@layout/fragment_movie_list" >
+        <action
+            android:id="@+id/action_movieListFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.sedat.themovieapp.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trendFragment"
+        android:name="com.sedat.themovieapp.fragment.TrendFragment"
+        android:label="fragment_trend"
+        tools:layout="@layout/fragment_trend" >
+        <action
+            android:id="@+id/action_trendFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.sedat.themovieapp.fragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="isSaved"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.sedat.themovieapp.fragment.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_savedFragment2_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>

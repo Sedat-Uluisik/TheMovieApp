@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="movie"
+            type="com.sedat.themovieapp.model.Result" />
+        <variable
+            name="clickListener"
+            type="com.sedat.themovieapp.clicklistener.MyClickListener" />
+    </data>
+    <LinearLayout
+        android:id="@+id/root_layout_search_item"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/recyler_item_background"
+        android:orientation="horizontal"
+        android:onClick="@{(view)->clickListener.onSearchItemClick(view, movie.id)}">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerInside"
+            android:downloadfromurl="@{movie.posterPath}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/movie_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"-->" + movie.title}'
+                android:layout_margin="5dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{movie.releaseDate}"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                app:drawableStartCompat="@drawable/ic_baseline_date_range_24" />
+
+            <TextView
+                android:id="@+id/vote_avarage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"IMDB: " + String.valueOf(movie.voteAverage)}'
+                android:layout_margin="5dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
